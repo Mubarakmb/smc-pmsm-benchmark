@@ -1,0 +1,10 @@
+__pycache__/
+*.pyc
+*.nbi
+*.nbc
+.pytest_cache/
+rerun/
+ctiming/ctrl_bench
+ctiming/timing_output.txt
+figures/diag_*.png
+figures/demo_*.png

@@ -1,0 +1,38 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it as below."
+title: "smcbench: a reproducible benchmark of sliding-mode speed control for PMSM drives"
+type: software
+version: 1.0.0
+date-released: 2026-10-08
+license: MIT
+repository-code: "https://github.com/Mubarakmb/smc-pmsm-benchmark"
+authors:
+  - family-names: Aremu
+    given-names: Mubarak Badamasi
+    affiliation: "King Fahd University of Petroleum & Minerals (KFUPM)"
+  - family-names: Ajasa
+    given-names: Abdullah
+    affiliation: "King Fahd University of Petroleum & Minerals (KFUPM)"
+  - family-names: Nasir
+    given-names: Ali
+    affiliation: "King Fahd University of Petroleum & Minerals (KFUPM)"
+keywords:
+  - sliding-mode control
+  - PMSM
+  - speed control
+  - benchmark
+  - super-twisting
+  - fractional-order control
+references:
+  - type: article
+    title: "Sliding-Mode Control Strategies for PMSM Speed Control: A Comprehensive Review, Taxonomy, and Research Gaps"
+    authors:
+      - family-names: Ajasa
+        given-names: Abdullah
+      - family-names: Aremu
+        given-names: Mubarak Badamasi
+      - family-names: Nasir
+        given-names: Ali
+    journal: "Arabian Journal for Science and Engineering"
+    year: 2026
+    doi: 10.1007/s13369-026-11494-6
