@@ -1,0 +1,25 @@
+(a) solver step: max relative change of metrics vs h = 1 us
+  CSMC      h= 10us:  1.1422%  h=  5us:  0.0000%  h=  2us:  0.0000%  h=  1us:  0.0000%
+  ISMC      h= 10us:  0.0859%  h=  5us:  0.3966%  h=  2us:  0.0000%  h=  1us:  0.0000%
+  TSMC      h= 10us: 15.4738%  h=  5us:  0.0000%  h=  2us:  0.0000%  h=  1us:  0.0000%
+  ASMC      h= 10us:  0.0000%  h=  5us:  0.0000%  h=  2us:  0.0000%  h=  1us:  0.0000%
+  FOSMC     h= 10us: 45.9860%  h=  5us:  0.0000%  h=  2us:  0.0000%  h=  1us:  0.0000%
+  STSMC     h= 10us:  0.0000%  h=  5us:  0.0000%  h=  2us:  0.0000%  h=  1us:  0.0000%
+  CSMC-BL   h= 10us:  0.0000%  h=  5us:  0.0000%  h=  2us:  0.0000%  h=  1us:  0.0000%
+  ISMC-BL   h= 10us:  0.0000%  h=  5us:  0.0000%  h=  2us:  0.0000%  h=  1us:  0.0000%
+  TSMC-BL   h= 10us:  0.0000%  h=  5us:  0.0000%  h=  2us:  0.0000%  h=  1us:  0.0000%
+  ASMC-BL   h= 10us:  3.8752%  h=  5us:  0.0000%  h=  2us:  0.0000%  h=  1us:  0.0000%
+  FOSMC-BL  h= 10us:  0.0000%  h=  5us:  0.0000%  h=  2us:  0.0000%  h=  1us:  0.0000%
+
+(b) sampling time: cost J and torque ripple (N m p-p), gains tuned at 100 us
+  CSMC      Ts= 50us: J=  2.479 ripple=10.281  Ts=100us: J=  1.329 ripple=14.369  Ts=200us: J=205.800 ripple=20.314
+  ISMC      Ts= 50us: J=  2.308 ripple=12.389  Ts=100us: J=  1.115 ripple=20.035  Ts=200us: J=328.570 ripple=95.073
+  TSMC      Ts= 50us: J=  2.373 ripple=12.156  Ts=100us: J=  1.051 ripple=19.106  Ts=200us: J=315.259 ripple=101.960
+  ASMC      Ts= 50us: J=  1.715 ripple= 8.681  Ts=100us: J=  0.726 ripple=16.042  Ts=200us: J=237.377 ripple=43.056
+  FOSMC     Ts= 50us: J=  2.102 ripple= 9.815  Ts=100us: J=  0.944 ripple=15.997  Ts=200us: J= 12.749 ripple=13.459
+  STSMC     Ts= 50us: J=  0.695 ripple= 3.496  Ts=100us: J=  0.791 ripple= 4.898  Ts=200us: J=  1.487 ripple= 8.545
+  CSMC-BL   Ts= 50us: J=  1.609 ripple= 0.165  Ts=100us: J=  0.827 ripple= 0.291  Ts=200us: J=  5.883 ripple=18.319
+  ISMC-BL   Ts= 50us: J=  0.394 ripple= 0.042  Ts=100us: J=  0.082 ripple= 0.044  Ts=200us: J=  0.262 ripple= 0.157
+  TSMC-BL   Ts= 50us: J=  0.407 ripple= 0.046  Ts=100us: J=  0.086 ripple= 0.047  Ts=200us: J=  0.240 ripple= 0.603
+  ASMC-BL   Ts= 50us: J=  1.111 ripple= 1.218  Ts=100us: J=  0.464 ripple= 2.753  Ts=200us: J=265.734 ripple=91.207
+  FOSMC-BL  Ts= 50us: J=  0.506 ripple= 0.080  Ts=100us: J=  0.139 ripple= 0.126  Ts=200us: J=  2.017 ripple=11.998

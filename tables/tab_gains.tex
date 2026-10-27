@@ -1,0 +1,23 @@
+\begin{table*}[!t]
+\centering
+\caption{Tuned parameters (best of three seeds, constrained protocol, 1920 evaluations per run) and training objective $\mathcal J$ over the three seeds.}
+\label{tab:gains}
+\small
+\begin{tabular}{@{}lp{10.2cm}ccc@{}}
+\toprule
+\textbf{Variant} & \textbf{Tuned parameters} & \textbf{$\mathcal J$ best} & \textbf{median} & \textbf{worst} \\
+\midrule
+CSMC & $k=5087$, $q=1612$ & 1.3285 & 1.3368 & 1.3415 \\
+ISMC & $\lambda=591$, $k=5089$, $q=1698$ & 1.1145 & 1.1199 & 1.1421 \\
+TSMC & $\nu=475$, $\alpha=0.584$, $k=5080$, $q=1854$ & 1.0509 & 1.0745 & 1.0750 \\
+ASMC & $q=2352$, $K^+=5089$, $\gamma_0=114$, $\tau=2.9e-04$, $\bar\alpha=0.944$ & 0.7255 & 0.9220 & 0.9243 \\
+FOSMC & $k_i=78.3$, $\alpha=0.61$, $k=5105$, $q=890$ & 0.9438 & 0.9451 & 0.9677 \\
+CSMC-BL & $k=12067$, $q=648$, $\phi=3.118$ & 0.8266 & 0.8275 & 0.8297 \\
+ISMC-BL & $\lambda=926$, $k=5295$, $q=54.5$, $\phi=6.224$ & 0.0819 & 0.0819 & 0.0819 \\
+TSMC-BL & $\nu=810$, $\alpha=0.95$, $k=5728$, $q=48.5$, $\phi=6.384$ & 0.0862 & 0.0862 & 0.0862 \\
+ASMC-BL & $q=1841$, $K^+=40899$, $\gamma_0=146$, $\tau=8.4e-04$, $\bar\alpha=0.95$, $\phi=0.253$ & 0.4636 & 0.4649 & 0.4744 \\
+FOSMC-BL & $k_i=188$, $\alpha=0.814$, $k=6241$, $q=295$, $\phi=4.913$ & 0.1387 & 0.1387 & 0.1392 \\
+STSMC & $k_2=1.6e6$, $k_1=1798$ & 0.7914 & 0.7933 & 0.7934 \\
+\bottomrule
+\end{tabular}
+\end{table*}

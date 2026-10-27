@@ -1,0 +1,24 @@
+\begin{table*}[!t]
+\centering
+\caption{Nominal scenario (rated speed, rated-load step at 0.3~s): tracking, disturbance rejection and chattering indices (definitions in Table~\ref{tab:metrics}).}
+\label{tab:nominal}
+\small
+\begin{tabular}{@{}lcccccccccc@{}}
+\toprule
+& $\mathrm{IAE}_{\text{trk}}$ & $\mathrm{IAE}_{\text{load}}$ & $\Delta\omega$ & $t_{\text{rec}}$ & $e_{ss}$ & TV($i_q^\star$) & HF $i_q$ & switch rate & $\omega$ ripple & $T_e$ ripple \\
+\textbf{Variant} & (rad) & (rad) & (rad/s) & (s) & (rad/s) & (A/s) & (A rms) & (1/s) & (rad/s p--p) & (N·m p--p) \\
+\midrule
+CSMC & 0.269 & 0.154 & 2.88 & 0.298 & 0.488 & 3681 & 0.431 & 160 & 3.005 & 14.4 \\
+ISMC & 0.264 & 0.093 & 4.23 & 0.287 & 0.313 & 3075 & 0.312 & 80.0 & 4.801 & 20.0 \\
+TSMC & 0.247 & 0.072 & 4.40 & 0.269 & 0.208 & 3122 & 0.313 & 80.0 & 4.976 & 19.1 \\
+ASMC & 0.021 & 0.225 & 3.20 & 0.285 & 0.578 & 4575 & 0.472 & 160 & 3.331 & 16.0 \\
+FOSMC & 0.197 & 0.078 & 3.08 & 0.267 & 0.285 & 3804 & 0.306 & 80.0 & 3.518 & 16.0 \\
+CSMC-BL & 0.043 & 0.318 & 1.11 & 0 & 1.07 & 943 & 0.025 & 0 & 0.044 & 0.291 \\
+ISMC-BL & 0.021 & 6.1e-03 & 1.46 & 0 & 1.1e-03 & 380 & 0.014 & 0 & 5.4e-03 & 0.044 \\
+TSMC-BL & 0.021 & 6.6e-03 & 1.59 & 4.2e-03 & 1.1e-03 & 433 & 0.014 & 0 & 5.2e-03 & 0.047 \\
+ASMC-BL & 0.02 & 0.134 & 2.44 & 0.015 & 0.349 & 3694 & 0.154 & 0 & 0.502 & 2.753 \\
+FOSMC-BL & 0.022 & 0.022 & 1.19 & 0 & 0.05 & 608 & 0.017 & 0 & 0.03 & 0.126 \\
+STSMC & 0.135 & 0.129 & 0.83 & 0 & 0.435 & 3737 & 0.197 & 720 & 1.412 & 4.898 \\
+\bottomrule
+\end{tabular}
+\end{table*}

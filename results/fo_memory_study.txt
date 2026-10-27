@@ -1,0 +1,24 @@
+alpha=0.5  signal=step
+   Lm=  100 (  10.0 ms window)  rel. error at t=0.6 s =  87.105 %  cost = 200 MAC/step (2 operators), memory = 0.8 kB/buffer (double)
+   Lm=  300 (  30.0 ms window)  rel. error at t=0.6 s =  77.647 %  cost = 600 MAC/step (2 operators), memory = 2.3 kB/buffer (double)
+   Lm= 1000 ( 100.0 ms window)  rel. error at t=0.6 s =  59.177 %  cost = 2000 MAC/step (2 operators), memory = 7.8 kB/buffer (double)
+   Lm= 2000 ( 200.0 ms window)  rel. error at t=0.6 s =  42.264 %  cost = 4000 MAC/step (2 operators), memory = 15.6 kB/buffer (double)
+   Lm= 6001 ( 600.1 ms window)  rel. error at t=0.6 s =   0.006 %  cost = 12002 MAC/step (2 operators), memory = 46.9 kB/buffer (double)
+alpha=0.5  signal=ramp
+   Lm=  100 (  10.0 ms window)  rel. error at t=0.6 s =  80.764 %  cost = 200 MAC/step (2 operators), memory = 0.8 kB/buffer (double)
+   Lm=  300 (  30.0 ms window)  rel. error at t=0.6 s =  67.027 %  cost = 600 MAC/step (2 operators), memory = 2.3 kB/buffer (double)
+   Lm= 1000 ( 100.0 ms window)  rel. error at t=0.6 s =  42.164 %  cost = 2000 MAC/step (2 operators), memory = 7.8 kB/buffer (double)
+   Lm= 2000 ( 200.0 ms window)  rel. error at t=0.6 s =  23.015 %  cost = 4000 MAC/step (2 operators), memory = 15.6 kB/buffer (double)
+   Lm= 6001 ( 600.1 ms window)  rel. error at t=0.6 s =   0.006 %  cost = 12002 MAC/step (2 operators), memory = 46.9 kB/buffer (double)
+alpha=0.89  signal=step
+   Lm=  100 (  10.0 ms window)  rel. error at t=0.6 s =  97.386 %  cost = 200 MAC/step (2 operators), memory = 0.8 kB/buffer (double)
+   Lm=  300 (  30.0 ms window)  rel. error at t=0.6 s =  93.049 %  cost = 600 MAC/step (2 operators), memory = 2.3 kB/buffer (double)
+   Lm= 1000 ( 100.0 ms window)  rel. error at t=0.6 s =  79.700 %  cost = 2000 MAC/step (2 operators), memory = 7.8 kB/buffer (double)
+   Lm= 2000 ( 200.0 ms window)  rel. error at t=0.6 s =  62.380 %  cost = 4000 MAC/step (2 operators), memory = 15.6 kB/buffer (double)
+   Lm= 6001 ( 600.1 ms window)  rel. error at t=0.6 s =   0.014 %  cost = 12002 MAC/step (2 operators), memory = 46.9 kB/buffer (double)
+alpha=0.89  signal=ramp
+   Lm=  100 (  10.0 ms window)  rel. error at t=0.6 s =  95.098 %  cost = 200 MAC/step (2 operators), memory = 0.8 kB/buffer (double)
+   Lm=  300 (  30.0 ms window)  rel. error at t=0.6 s =  87.170 %  cost = 600 MAC/step (2 operators), memory = 2.3 kB/buffer (double)
+   Lm= 1000 ( 100.0 ms window)  rel. error at t=0.6 s =  64.642 %  cost = 2000 MAC/step (2 operators), memory = 7.8 kB/buffer (double)
+   Lm= 2000 ( 200.0 ms window)  rel. error at t=0.6 s =  40.055 %  cost = 4000 MAC/step (2 operators), memory = 15.6 kB/buffer (double)
+   Lm= 6001 ( 600.1 ms window)  rel. error at t=0.6 s =   0.014 %  cost = 12002 MAC/step (2 operators), memory = 46.9 kB/buffer (double)

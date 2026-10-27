@@ -1,0 +1,9 @@
+ISMC-BL   seed=0 J=0.0819 nfev=1920 101s
+ISMC-BL   seed=1 J=0.0819 nfev=1920 94s
+ISMC-BL   seed=2 J=0.0819 nfev=1920 103s
+TSMC-BL   seed=0 J=0.0855 nfev=1920 94s
+TSMC-BL   seed=1 J=0.0855 nfev=1920 87s
+TSMC-BL   seed=2 J=0.0855 nfev=1920 84s
+STSMC     seed=0 J=0.2405 nfev=1920 86s
+STSMC     seed=1 J=0.2403 nfev=1920 85s
+STSMC     seed=2 J=0.2406 nfev=1920 84s
