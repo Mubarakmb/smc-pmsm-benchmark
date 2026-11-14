@@ -10,7 +10,8 @@ set MODE=%1
 if "%MODE%"=="" set MODE=check
 
 if "%MODE%"=="setup" (
-    py -3 -m venv .venv || python -m venv .venv
+    py -3.13 -m venv .venv || py -3.12 -m venv .venv || python -m venv .venv
+    .venv\Scripts\python -c "import sys; v=sys.version_info; print('Python', sys.version.split()[0]); sys.exit(0 if v>=(3,12) else 'Python 3.12 or newer is required: install Python 3.13 from python.org, delete the .venv folder and run setup again.')" || exit /b 1
     call .venv\Scripts\activate.bat
     python -m pip install --upgrade pip
     python -m pip install -r requirements.txt
@@ -42,6 +43,9 @@ if "%MODE%"=="outputs" (
     set PROTOCOL=free
     python -m smcbench.analyse_eval
     python -m smcbench.fo_memory_study
+    set PROTOCOL=lyap
+    python -m smcbench.subgroups
+    python -m smcbench.foaw_study
     goto :eof
 )
 echo Unknown option "%MODE%". Use: setup, check, demo or outputs.

@@ -18,6 +18,17 @@ and anyone can add a controller and compare it under exactly the same conditions
 
 ---
 
+## Version 1.1
+
+Version 1.1 accompanies the second revision of the paper. It adds, without changing any v1.0 result:
+- an optional dedicated anti-windup for the FOSMC fractional memory (`FO_AW=1`; off by default), in which the
+  memory pauses while the current command is saturated and the error drives further into saturation, and
+  `smcbench.foaw_study`, which evaluates it;
+- `smcbench.subgroups`, which ranks the controllers within subgroups of the Monte Carlo runs (by speed, load and inertia);
+- two tests for the new option.
+
+The code used for v1.0 is unchanged when `FO_AW` is not set, and all v1.0 results are reproduced.
+
 ## Contents
 
 1. [What is benchmarked](#1-what-is-benchmarked)
@@ -59,7 +70,7 @@ and with the same boundary layer sat(*s*/φ) (suffix **-BL**). Together with STS
 
 ## 2. Quick start
 
-Requirements: Python 3 (tested with 3.13) and the packages in `requirements.txt` (the versions listed are those
+Requirements: Python 3.12 or newer (tested with 3.13; the pinned NumPy needs at least 3.12) and the packages in `requirements.txt` (the versions listed are those
 with which all results were produced). A C compiler is needed only for the timing benchmark.
 
 ```bash
@@ -86,7 +97,7 @@ print(r['IAE_load'], r['Te_p2p'])              # metrics dict, see Section 9
 
 ### Windows
 
-Install Python 3.13 from python.org (tick "Add python.exe to PATH"), open the repository folder,
+Install Python 3.13 from python.org (tick "Add python.exe to PATH"; Python 3.12 or newer is required), open the repository folder,
 and use the helper script from a terminal (Command Prompt or the VS Code terminal):
 
 ```bat
@@ -131,6 +142,8 @@ Mapping from scripts to the paper:
 | `smcbench.figures`, `smcbench.figures2` | `figures/fig_*.pdf` | result figures |
 | `smcbench.graphical_abstract` | `figures/graphical_abstract.*` | graphical abstract |
 | `ctiming/run_timing.sh` | execution time per control step | computational cost |
+| `smcbench.subgroups` (v1.1) | `tables/tab_subgroups.tex` | Monte Carlo ranking by operating condition |
+| `smcbench.foaw_study` (v1.1) | `results/eval_results_lyap_foaw.json` | dedicated anti-windup for the FOSMC memory |
 
 ## 4. Repository layout
 
@@ -317,6 +330,7 @@ that diverges returns 𝒥 = 1000.
 | `disturb_lyap.json` | periodic-ripple cases ([speed p-p, mean \|*e*\|]) and Coulomb-friction cases (reversal IAE) |
 | `protocol_compare.{json,txt}` | constrained vs unconstrained summary (gains relative to bounds, ranks, paired ratios, Wilcoxon *p*) |
 | `fo_memory_study.txt` | GL operator error vs memory length |
+| `eval_results_lyap_foaw.json` (v1.1) | FOSMC and FOSMC-BL with the dedicated memory anti-windup (same structure as `eval_results_*`) |
 | `logs/` | console output of the tuning runs and analyses |
 
 ## 11. Main results
@@ -391,7 +405,7 @@ general-purpose-processor figures; embedded execution times must be measured on 
 python -m pytest -q tests
 ```
 
-The 45 tests check that:
+The 47 tests check that:
 - re-simulating the stored best gains reproduces the stored training objective for all 11 variants
   under both protocols, and selected test-scenario and Monte Carlo metrics (relative tolerance
   10⁻⁶);
@@ -399,7 +413,8 @@ The 45 tests check that:
 - with unconstrained gains (*k* < *D*), ISMC, TSMC and FOSMC settle at *s* = (*D* − *k*)/*q* without
   changing sign;
 - the steady-state torque balances the load, and current and voltage limits are respected;
-- the Grünwald–Letnikov weights reduce to the identity and the backward difference for orders 0 and 1.
+- the Grünwald–Letnikov weights reduce to the identity and the backward difference for orders 0 and 1;
+- the optional FOSMC memory anti-windup reproduces its stored results, and switching it off reproduces the original ones (v1.1).
 
 ## 15. Limitations
 

@@ -101,3 +101,17 @@ def test_gl_weights():
     """Grunwald-Letnikov weights: order 0 is the identity, order 1 the backward difference."""
     assert np.allclose(gl_weights(0.0, 5), [1, 0, 0, 0, 0])
     assert np.allclose(gl_weights(1.0, 5), [1, -1, 0, 0, 0])
+
+
+@pytest.mark.parametrize('name', ['FOSMC', 'FOSMC-BL'])
+def test_fosmc_memory_anti_windup(name, monkeypatch):
+    """Dedicated FOSMC anti-windup (FO_AW=1) reproduces the stored saturation-scenario results;
+    switching it off reproduces the original ones."""
+    aw = json.load(open(os.path.join(RESULTS, 'eval_results_lyap_foaw.json')))
+    x = BEST['lyap'][name]['x']
+    monkeypatch.setattr(T, 'FO_AW', 1)
+    r, _ = E.evaluate(name, x, E.SCEN['E5 saturation'], protocol='lyap')
+    assert r['J'] == pytest.approx(aw[name]['scen']['E5 saturation']['J'], rel=RTOL)
+    monkeypatch.setattr(T, 'FO_AW', 0)
+    r, _ = E.evaluate(name, x, E.SCEN['E5 saturation'], protocol='lyap')
+    assert r['J'] == pytest.approx(EVAL['lyap'][name]['scen']['E5 saturation']['J'], rel=RTOL)

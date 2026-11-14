@@ -82,6 +82,9 @@ def to_x(name, u):
             for (k, lo, hi, lg), ui in zip(sp, u)]
 
 
+FO_AW = int(os.environ.get('FO_AW', '0'))   # 1: dedicated anti-windup for the FOSMC memory
+
+
 def run(name, x, S=S_TRAIN, Pp=P, Dv=DRV, protocol=None):
     """Simulate variant `name` with parameters x (as stored in the tuning results) in scenario S.
     Pp: true plant vector (the controller always uses the nominal P); Dv: drive vector.
@@ -89,7 +92,7 @@ def run(name, x, S=S_TRAIN, Pp=P, Dv=DRV, protocol=None):
     c, bl, G, phi, _ = build(name, x, protocol)
     al = G[1] if c == 5 else 0.5
     wa, wb = (gl_weights(-al, LM), gl_weights(1 - al, LM)) if c == 5 else (np.ones(1), np.ones(1))
-    return simulate(c, G, bl, phi, Pp, P.copy(), Dv, S, wa, wb, len(wa))
+    return simulate(c, G, bl, phi, Pp, P.copy(), Dv, S, wa, wb, len(wa), FO_AW)
 
 
 def cost_of(log, S):

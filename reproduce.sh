@@ -16,6 +16,8 @@ outputs () {
   PROTOCOL=lyap python -m smcbench.analyse_eval
   PROTOCOL=free python -m smcbench.analyse_eval
   python -m smcbench.fo_memory_study
+  python -m smcbench.subgroups
+  python -m smcbench.foaw_study
 }
 
 case "$MODE" in

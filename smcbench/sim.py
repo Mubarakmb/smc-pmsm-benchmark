@@ -116,7 +116,7 @@ def gl_weights(r, Lm):
 
 
 @njit(cache=True)
-def simulate(ctrl, G, bl, phi, P, Pn, D, S, wa, wb, Lm):
+def simulate(ctrl, G, bl, phi, P, Pn, D, S, wa, wb, Lm, foaw=0):
     """Run one simulation. wa/wb: GL weights for orders -al and 1-al (FOSMC).
     Returns log array sampled at the speed-loop rate with columns:
     t, w_ref, w, w_meas, iq_ref, iq, id, Te, TL, s, vd, vq, sat, aux"""
@@ -161,6 +161,9 @@ def simulate(ctrl, G, bl, phi, P, Pn, D, S, wa, wb, Lm):
     ebuf = np.zeros(Lm)       # FOSMC error history (circular)
     bidx = 0
     nb = 0
+    old_e = 0.0
+    old_bidx = 0
+    old_nb = 0
     s = 0.0
     sat = 0.0
     aux = 0.0
@@ -205,6 +208,9 @@ def simulate(ctrl, G, bl, phi, P, Pn, D, S, wa, wb, Lm):
                 N = K * _sw(s, bl, phi) + q * s
             elif ctrl == 5:  # FOSMC
                 ki, k, q = G[0], G[2], G[3]
+                old_e = ebuf[bidx]
+                old_bidx = bidx
+                old_nb = nb
                 ebuf[bidx] = e
                 nb = min(nb + 1, Lm)
                 accA = 0.0
@@ -243,6 +249,12 @@ def simulate(ctrl, G, bl, phi, P, Pn, D, S, wa, wb, Lm):
                 if not (freeze and dK > 0):
                     K += dK * Tsw
                 aux = K
+            elif ctrl == 5 and foaw == 1 and freeze:
+                # dedicated FOSMC anti-windup: the fractional memory pauses while
+                # i_q* is saturated and e drives further into saturation
+                ebuf[old_bidx] = old_e
+                bidx = old_bidx
+                nb = old_nb
             elif ctrl == 6 and not freeze:
                 v += G[1] * _sgn(s) * Tsw
                 aux = v
